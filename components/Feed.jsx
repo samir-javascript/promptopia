@@ -1,8 +1,18 @@
 'use client'
-import React, { useState, useEffect } from 'react';
-import PromptCardList from './PromptCardList'; // Assuming you have a separate file for PromptCardList
-import Loader from './Loader';
+import React, {useState, useEffect} from 'react'
+import PromptCard from './PromptCard'
+import Loader from './Loader'
 
+
+const PromptCardList = ({data, handleTagClick })=> {
+   return (
+      <div className='mt-16 prompt_layout'>
+          {data?.map(post => (
+              <PromptCard  key={post._id} post={post} handleTagClick={handleTagClick} />
+          ))}
+      </div>
+   )
+}
 const Feed = () => {
   const [posts, setPosts] = useState([]);
   const [searchText, setSearchText] = useState('');
