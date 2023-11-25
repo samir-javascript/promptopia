@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import PromptCardList from './PromptCardList'; // Assuming you have a separate file for PromptCardList
 import Loader from './Loader';
