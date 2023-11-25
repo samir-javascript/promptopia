@@ -24,11 +24,10 @@ const Feed = () => {
     const fetchPrompts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/prompt`, { cache: 'no-store' });
+        const response = await fetch(`/api/prompt?${Date.now()}`);
         if (response.ok) {
           const data = await response.json();
           setPosts(data);
-         
         }
       } catch (error) {
         console.error(error);
@@ -37,6 +36,7 @@ const Feed = () => {
       }
     };
     fetchPrompts();
+    
   }, []);
 
   const filterPrompts = (searchText) => {
