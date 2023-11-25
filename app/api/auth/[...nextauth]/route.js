@@ -14,7 +14,7 @@ const authOptions = {
                     if(!credentials || !credentials.email || !credentials.password) {
                         return null
                     }
-                    const {email,password} = credentials;
+                    const {email,password} = credentials; // exctract the email and password that comes from the form
                     await connectToDatabase()
                     const user = await User.findOne({email})
                     if(!user) {

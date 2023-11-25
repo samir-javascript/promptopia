@@ -11,8 +11,7 @@ export const connectToDatabase = async ()=> {
     try {
         await mongoose.connect(process.env.NEXT_PUBLIC_MONGODB_URL, {
             dbName: 'promptopiasita',
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+           
 
         })
         console.log('mongodb is connected successfuly')
