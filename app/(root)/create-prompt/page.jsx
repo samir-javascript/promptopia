@@ -46,6 +46,7 @@ const page = () => {
        if(response.ok) {
         setIsSubmitting(false)
           router.push('/')
+          router.refresh()
        }
     } catch (error) {
         console.log(error)

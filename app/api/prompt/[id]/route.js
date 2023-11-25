@@ -9,8 +9,7 @@ export const GET = async (req,{params})=> {
         if(!prompts) {
             throw new Error('prompt not found')
         }
-        const path = request.nextUrl.searchParams.get('path') || '/'
-        revalidatePath(path)
+        
         return new Response(JSON.stringify(prompts), {status: 200})
     } catch (error) {
         console.log(error)

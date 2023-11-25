@@ -47,6 +47,7 @@ const page = () => {
                })
                if(response.ok) {
                   router.push('/')
+                  router.refresh()
                }else {
                 toast({
                     variant: "destructive",
