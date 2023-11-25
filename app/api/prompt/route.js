@@ -11,7 +11,7 @@ export const GET = async (request) => {
         const prompts = await Prompt.find({}).sort({ _id: -1 }).populate('creator');
         console.log(prompts);
 
-        return new Response(JSON.stringify(prompts), { status: 200 })
+        return new Response(JSON.stringify(prompts), { status: 200, headers: { 'Cache-Control': 's-maxage=1, stale-while-revalidate' } })
     } catch (error) {
         return new Response("Failed to fetch all prompts", { status: 500 })
     }

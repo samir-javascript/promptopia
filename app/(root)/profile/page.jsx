@@ -51,11 +51,10 @@ const page = () => {
       try {
          setLoding(true)
          const fetchPrompts = async()=> {
-          const response = await fetch(`/api/user/${session?.user.id}/posts`)
+          const response = await fetch(`/api/user/${session?.user.id}/posts`, { cache: 'no-store' })
           if(response.ok) {
              const data = await response.json()
-             setMyPosts(data)
-            
+             setMyPosts(data) 
           }
         }
         if(session?.user.id) {
