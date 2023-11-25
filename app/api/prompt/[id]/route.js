@@ -1,5 +1,6 @@
 import Prompt from "@/models/prompt.model"
 import { connectToDatabase } from "@/utils/database"
+import { revalidatePath } from "next/cache"
 
 export const GET = async (req,{params})=> {
     try {
@@ -8,6 +9,8 @@ export const GET = async (req,{params})=> {
         if(!prompts) {
             throw new Error('prompt not found')
         }
+        const path = request.nextUrl.searchParams.get('path') || '/'
+        revalidatePath(path)
         return new Response(JSON.stringify(prompts), {status: 200})
     } catch (error) {
         console.log(error)
@@ -36,6 +39,7 @@ export const DELETE = async(req,{params})=> {
    try {
      await connectToDatabase()
      await Prompt.findByIdAndDelete(params.id)
+    
      return new Response('prompt has been deleted successfuly', {status: 200})
    } catch (error) {
       console.log(error)
