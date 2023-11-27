@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { usePathname } from 'next/navigation'
-import MobileNav from './MobileNav';
+import MobileNav from './MobileNav'
 import { useSession , signOut } from 'next-auth/react';
 const Navbar = () => {
-     const {data:session, status} = useSession()
-     console.log(session)
+     const {data:session} = useSession()
+    
       const pathName = usePathname()
   return (
     <nav className='flex items-center justify-between w-full mb-16 pt-3'>
@@ -25,15 +25,15 @@ const Navbar = () => {
                             Create Post
                          </Link>
                          <button onClick={signOut} className='outline_btn' type='button'>
-                         Sign Out
-                      </button>
+                            Sign Out
+                         </button>
                       </>
                     )}
                     
                     
                        <Link href='/profile'>
                             <Image alt='profile' src='/assets/icons/user.webp' width={30} height={30} className='rounded-full object-contain' />
-                        </Link>
+                      </Link>
                    
                 </div>
              ) : (
@@ -42,7 +42,7 @@ const Navbar = () => {
             
               <Link href='/sign-up'>
               <button className='mt-5 w-full black_btn'>
-                Sign in
+                   Sign in
               </button>
                </Link>
             

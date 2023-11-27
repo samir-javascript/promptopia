@@ -11,8 +11,6 @@ export const connectToDatabase = async ()=> {
     try {
         await mongoose.connect(process.env.NEXT_PUBLIC_MONGODB_URL, {
             dbName: 'promptopiasita',
-           
-
         })
         console.log('mongodb is connected successfuly')
         isConnected = true;

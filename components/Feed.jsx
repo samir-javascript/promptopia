@@ -15,11 +15,12 @@ const PromptCardList = ({data, handleTagClick })=> {
 }
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+ 
   const [searchText, setSearchText] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [searchTimeOut, setSearchTimeOut] = useState(null);
   const [loading, setLoading] = useState(false);
-
+    
   useEffect(() => {
     const fetchPrompts = async () => {
       setLoading(true);

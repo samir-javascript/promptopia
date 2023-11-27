@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import { connectToDatabase } from "@/utils/database";
 import User from "@/models/user.model";
 import  CredentialsProvider  from "next-auth/providers/credentials";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs'  // TO HASH THE USER'S PASSWORD 
 
 const authOptions = {
     providers: [
