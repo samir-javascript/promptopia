@@ -16,7 +16,8 @@ export default function RootLayout({children}) {
       <html lang="en">
         <Head>
         
-        
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
         {/* Add the following line to include your favicon */}
         <link rel="icon" href="/assets/images/logo.svg" />
       </Head>
