@@ -6,7 +6,14 @@ export const metadata = {
   title: "Promtopia",
   description:
     "Q&A community for programmers , solving coding challenges, sharing knowledge.",
-  
+    icons: {
+      icon: [
+        {
+          url: "/assets/images/logo.svg", // /public path
+          href: "/assets/images/logo.svg", // /public path
+        },
+      ],
+    },
 };
 
 
@@ -19,7 +26,7 @@ export default function RootLayout({children}) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         {/* Add the following line to include your favicon */}
-        <link rel="icon" href="/assets/images/logo.svg" />
+       
       </Head>
         <body>
         <Provider>  
