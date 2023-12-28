@@ -25,7 +25,7 @@ const Feed = () => {
     const fetchPrompts = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/prompt?${Date.now()}`);
+        const response = await fetch(`/api/prompt`);
         if (response.ok) {
           const data = await response.json();
           setPosts(data);

@@ -18,5 +18,9 @@ const PromptSchema = new Schema({
    { timestamps: true } // Add this line to enable timestamps
 )
 
+/** icons: {
+    icon: "/assets/images/logo.svg",
+  }, */
+
 const Prompt = models.Prompt || model('Prompt', PromptSchema)
 export default Prompt;
