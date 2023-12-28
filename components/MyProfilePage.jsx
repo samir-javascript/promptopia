@@ -15,7 +15,7 @@ const MyProfilePage = ({params}) => {
     
         
         const fetchPosts = async()=> {
-           const response = await fetch(`/api/user/${params.id}/posts`)
+           const response = await fetch(`/api/user/${params.id}/posts` , { next: { revalidate: 3600 } })
            if(response.ok) {
               const data = await response.json()
               setPosts(data)

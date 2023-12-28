@@ -16,7 +16,7 @@ const  UpdatePromptComponent = () => {
     const promptId = searchParams.get('id')
       useEffect(() => {
          const getPromptDetails = async()=> {
-             const response = await fetch(`/api/prompt/${promptId}`)
+             const response = await fetch(`/api/prompt/${promptId}`, { next: { revalidate: 3600 } })
              if(response.ok) {
                 const data = await response.json()
                 setPost({

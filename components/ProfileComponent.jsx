@@ -37,7 +37,7 @@ const ProfileComponent = () => {
 
   const deletePrompt = async (post) => {
     try {
-      await fetch(`/api/prompt/${post._id.toString()}`, {
+      await fetch(`/api/prompt/${post._id.toString()}`, { next: { revalidate: 3600 } },{
         method: "DELETE",
       });
       const filterPrompts = myPosts.filter((item) => item._id !== post._id);
