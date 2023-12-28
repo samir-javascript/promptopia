@@ -30,7 +30,7 @@ const PromptComponent = () => {
       return;
     }
     try {
-       const response = await fetch('/api/prompt/new', { next: { revalidate: 3600 } }, {
+       const response = await fetch('/api/prompt/new', {
           method: 'POST',
           body: JSON.stringify({
              userId: session?.user.id,
