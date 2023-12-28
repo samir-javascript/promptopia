@@ -16,7 +16,7 @@ const  UpdatePromptComponent = () => {
     const promptId = searchParams.get('id')
       useEffect(() => {
          const getPromptDetails = async()=> {
-             const response = await fetch(`/api/prompt/${promptId}`, { cache:'no-store'})
+             const response = await fetch(`/api/prompt/${promptId}`)
              if(response.ok) {
                 const data = await response.json()
                 setPost({
@@ -38,7 +38,7 @@ const  UpdatePromptComponent = () => {
             alert('prompt ID is missing!')
            }
            try { 
-               const response = await fetch(`/api/prompt/${promptId}`, {cache:'no-store'}, {
+               const response = await fetch(`/api/prompt/${promptId}`, {
                  method: 'PATCH',
                  body: JSON.stringify({
                     tag: post.tag,
