@@ -1,20 +1,19 @@
 import Prompt from "@/models/prompt.model"
 import { connectToDatabase } from "@/utils/database"
-import { revalidatePath } from "next/cache"
 
-export const GET = async (req,{params})=> {
-    try {
-        await connectToDatabase()
-        const prompts = await Prompt.findById(params.id).populate('creator')
-        if(!prompts) {
-            throw new Error('prompt not found')
-        }
-       
-        return new Response(JSON.stringify(prompt), { status: 200 })
-    } catch (error) {
-        console.log(error)
-        return new Response('failed to fetch prompts', {status:500})
-    }
+
+export const GET = async (request, { params }) => {
+  try {
+      await connectToDB()
+
+      const prompt = await Prompt.findById(params.id).populate("creator")
+      if (!prompt) return new Response("Prompt Not Found", { status: 404 });
+
+      return new Response(JSON.stringify(prompt), { status: 200 })
+
+  } catch (error) {
+      return new Response("Internal Server Error", { status: 500 });
+  }
 }
 
 export const PATCH = async(req, {params})=> {
