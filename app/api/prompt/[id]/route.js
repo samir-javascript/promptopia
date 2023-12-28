@@ -10,7 +10,7 @@ export const GET = async (req,{params})=> {
             throw new Error('prompt not found')
         }
        
-        return new Response('fetch prompts successfully', {status:200})
+        return new Response(JSON.stringify(prompt), { status: 200 })
     } catch (error) {
         console.log(error)
         return new Response('failed to fetch prompts', {status:500})
