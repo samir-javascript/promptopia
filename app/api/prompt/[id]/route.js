@@ -9,7 +9,8 @@ export const GET = async (req,{params})=> {
         if(!prompts) {
             throw new Error('prompt not found')
         }
-        
+        const path = req.nextUrl.searchParams.get('path') || '/'
+        revalidatePath(path)
         return new Response(JSON.stringify(prompts), {status: 200})
     } catch (error) {
         console.log(error)
@@ -28,6 +29,8 @@ export const PATCH = async(req, {params})=> {
          existingPrompt.prompt = prompt
          existingPrompt.tag = tag 
          await existingPrompt.save()
+         const path = req.nextUrl.searchParams.get('path') || '/'
+        revalidatePath(path)
          return new Response('the prompt has been updated successfuly', {status: 200})
       } catch (error) {
         console.log(error)
@@ -38,7 +41,8 @@ export const DELETE = async(req,{params})=> {
    try {
      await connectToDatabase()
      await Prompt.findByIdAndDelete(params.id)
-    
+     const path = req.nextUrl.searchParams.get('path') || '/'
+     revalidatePath(path)
      return new Response('prompt has been deleted successfuly', {status: 200})
    } catch (error) {
       console.log(error)
