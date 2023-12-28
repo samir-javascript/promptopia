@@ -13,8 +13,7 @@ export const POST = async(req)=> {
       })
 
       await newPrompt.save()
-      const path = req.nextUrl.searchParams.get('path') || '/'
-        revalidatePath(path)
+      
       return new Response(JSON.stringify(newPrompt), { status: 201})
 
    } catch (error) {
