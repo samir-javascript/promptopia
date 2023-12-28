@@ -1,3 +1,4 @@
+'use client'
 import PromptComponent from '@/components/PromptComponent'
 const page = () => {
   return (
